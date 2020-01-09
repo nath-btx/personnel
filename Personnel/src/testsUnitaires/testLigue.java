@@ -31,12 +31,13 @@ class testLigue
 	@Test
 	void getAdministrateur() {
 		Ligue ligue = new Ligue("Fléchettes");
-		Employe administrateur = 
+		Employe administrateur = ligue.adminstrateur("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty")
 	}
 	
 	@Test
 	void getEmployes() {
 		Ligue ligue = new Ligue("Fléchettes");
+		return addEmploye();
 	}
 	
 	@Test

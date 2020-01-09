@@ -11,15 +11,15 @@ class testLigue
 	@Test
 	void createLigue() 
 	{
-		Ligue ligue = new Ligue("FlÃ©chettes");
-		assertEquals("FlÃ©chettes", ligue.getNom());
+		Ligue ligue = new Ligue("Fléchettes");
+		assertEquals("Fléchettes", ligue.getNom());
 	}
 
 	@Test
 	void addEmploye() 
 	{
-		Ligue ligue = new Ligue("FlÃ©chettes");
-		Employe employe = ligue.addEmploye("Bouchard", "GÃ©rard", "g.bouchard@gmail.com", "azerty"); 
+		Ligue ligue = new Ligue("Fléchettes");
+		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty"); 
 		assertEquals(employe, ligue.getEmployes().first());
 	}
 }

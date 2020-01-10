@@ -61,22 +61,38 @@ class TestEmploye {
 
 	@Test
 	void testGetMail() {
-		fail("Not yet implemented");
+		Ligue ligue = new Ligue("Pétanque");
+		Employe employe = new Employe (ligue,"surname","name","mail","pass");
+		String mail = "MickaelJanothan@gmail.com";
+		employe.setMail(mail);
+		assertEquals(employe.getMail(),mail);
 	}
 
 	@Test
 	void testSetMail() {
-		fail("Not yet implemented");
+		Ligue ligue = new Ligue("Pétanque");
+		Employe employe = new Employe (ligue,"surname","name","mail","pass");
+		String mail = "MickaelJanothan@gmail.com";
+		employe.setMail(mail);
+		assertEquals(employe.getMail(),mail);
 	}
 
 	@Test
 	void testCheckPassword() {
-		fail("Not yet implemented");
+		Ligue ligue = new Ligue("Pétanque");
+		Employe employe = new Employe (ligue,"surname","name","mail","pass");
+		String password = "toto94200";
+		employe.setPassword(password);
+		assertEquals(employe.CheckPassword(),password);
 	}
 
 	@Test
 	void testSetPassword() {
-		fail("Not yet implemented");
+		Ligue ligue = new Ligue("Pétanque");
+		Employe employe = new Employe (ligue,"surname","name","mail","pass");
+		String password = "toto94200";
+		employe.setPassword(password);
+		assertEquals(employe.CheckPassword(),password);
 	}
 
 	@Test

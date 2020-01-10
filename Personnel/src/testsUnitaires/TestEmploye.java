@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import personnel.Employe;
+import personnel.Ligue;
+
 class TestEmploye {
 
 	@Test
@@ -23,12 +26,18 @@ class TestEmploye {
 
 	@Test
 	void testGetNom() {
-		fail("Not yet implemented");
+		Ligue ligue = new Ligue("Fléchettes");
+		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty"); 
+		assertEquals(employe, ligue.getEmployes().first());
 	}
 
 	@Test
 	void testSetNom() {
-		fail("Not yet implemented");
+		Ligue ligue = new Ligue("Pétanque");
+		Employe employe = new Employe (ligue,"surname","name","mail","pass");
+		String nom = "Janothan";
+		employe.setNom(nom);
+		assertEquals(employe.getNom(),nom);
 	}
 
 	@Test

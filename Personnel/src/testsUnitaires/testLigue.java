@@ -17,7 +17,7 @@ class testLigue
 
 	@Test
 	void addEmploye() 
-	{.
+	{
 		Ligue ligue = new Ligue("Fléchettes");
 		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty"); 
 		assertEquals(employe, ligue.getEmployes().first());
@@ -25,35 +25,39 @@ class testLigue
 
 	@Test
 	void compareTo() {
-		
+		fail("Not yet implemented");
 	}
 	
 	@Test
 	void getAdministrateur() {
-		Ligue ligue = new Ligue("Fléchettes");
-		Employe administrateur = ligue.adminstrateur("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty")
+//		Ligue ligue = new Ligue("Fléchettes");
+//		Employe administrateur = ligue.administrateur("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty");
 	}
 	
 	@Test
 	void getEmployes() {
 		Ligue ligue = new Ligue("Fléchettes");
-		return addEmploye();
+		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty"); 
+		assertEquals(employe, ligue.getEmployes().first());
 	}
 	
-	@Test
-	void getNom() {
-		
-	}
+	
 	@Test
 	void setAdministrateur(Employe administrateur) {
-		Ligue ligue = new Ligue("Fléchettes");
-		Employe administrateur = ligue.getAdministrateur("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty")
+//		Ligue ligue = new Ligue("Fléchettes");
+//		Employe administrateur = ligue.getAdministrateur("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty");
 	}
 //	Employe(Ligue ligue, String nom, String prenom, String mail, String password)
 	
+	// Test setNom OK
 	@Test
 	void setNom() {
-		
+		Ligue ligue = new Ligue("Pétanque");
+		Employe employe = new Employe (ligue,"surname","name","mail","pass");
+		String nom = "Janothan";
+		employe.setNom(nom);
+		assertEquals(employe.getNom(),nom);
 	}
+	
 }
 

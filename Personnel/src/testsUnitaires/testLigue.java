@@ -8,6 +8,7 @@ import personnel.*;
 
 class testLigue 
 {
+	//createLigue getNom de ligue OK
 	@Test
 	void createLigue() 
 	{
@@ -15,6 +16,7 @@ class testLigue
 		assertEquals("Fléchettes", ligue.getNom());
 	}
 
+	//addEmploye getEmployes OK
 	@Test
 	void addEmploye() 
 	{
@@ -28,10 +30,15 @@ class testLigue
 		fail("Not yet implemented");
 	}
 	
+	
+	// setAdministrateur KO
 	@Test
-	void getAdministrateur() {
-//		Ligue ligue = new Ligue("Fléchettes");
-//		Employe administrateur = ligue.administrateur("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty");
+	void setAdministrateur() {
+		Ligue ligue = new Ligue("Fléchettes");
+		Employe administrateur = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty"); 
+		setAdministrateur(administrateur);
+		assertEquals(administrateur, ligue.getAdministrateur());
+		System.out.println(ligue.getAdministrateur());
 	}
 	
 	@Test
@@ -42,14 +49,8 @@ class testLigue
 	}
 	
 	
-	@Test
-	void setAdministrateur(Employe administrateur) {
-//		Ligue ligue = new Ligue("Fléchettes");
-//		Employe administrateur = ligue.getAdministrateur("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty");
-	}
-//	Employe(Ligue ligue, String nom, String prenom, String mail, String password)
 	
-	// Test setNom OK
+	// Test setNom et getNom OK
 	@Test
 	void setNom() {
 		Ligue ligue = new Ligue("Pétanque");

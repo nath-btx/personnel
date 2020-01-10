@@ -26,11 +26,12 @@ class TestEmploye {
 
 	@Test
 	void testGetNom() {
-		Ligue ligue = new Ligue("Fléchettes");
-		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty"); 
-		assertEquals(employe, ligue.getEmployes().first());
+		Ligue ligue = new Ligue("Pétanque");
+		Employe employe = new Employe (ligue,"surname","name","mail","pass");
+		String nom = "Janothan";
+		employe.setNom(nom);
+		assertEquals(employe.getNom(),nom);
 	}
-
 	@Test
 	void testSetNom() {
 		Ligue ligue = new Ligue("Pétanque");
@@ -42,12 +43,20 @@ class TestEmploye {
 
 	@Test
 	void testGetPrenom() {
-		fail("Not yet implemented");
+		Ligue ligue = new Ligue("Pétanque");
+		Employe employe = new Employe (ligue,"surname","name","mail","pass");
+		String prénom = "Mickael";
+		employe.setPrenom(prénom);
+		assertEquals(employe.getPrenom(),prénom);
 	}
 
 	@Test
 	void testSetPrenom() {
-		fail("Not yet implemented");
+		Ligue ligue = new Ligue("Pétanque");
+		Employe employe = new Employe (ligue,"surname","name","mail","pass");
+		String prénom = "Mickael";
+		employe.setPrenom(prénom);
+		assertEquals(employe.getPrenom(),prénom);
 	}
 
 	@Test

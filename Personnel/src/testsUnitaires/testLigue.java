@@ -49,20 +49,19 @@ class testLigue
 	void compareTo() {
 		Ligue ligue = new Ligue("Pétanque");
 		Ligue autre = new Ligue("Flechettes");
-		
 		assertEquals(ligue.compareTo(autre), ligue.getNom().compareTo(autre.getNom()));
 
 		System.out.println(ligue.getNom().compareTo(autre.getNom()));
 		
 	}
 	
-	// getNom & setNom
+	// setNom OK
 	@Test
 	void testGetNom() {
 		Ligue ligue = new Ligue("Pétanque");
-		ligue.setNom("Pétanque");
-		assertEquals(ligue.getNom(),ligue);
-		System.out.println(ligue.getNom());
+		String newLigue = "Fléchettes";
+		ligue.setNom(newLigue);
+		assertNotSame(ligue.getNom(),ligue);
 	}
 	
 	@Test

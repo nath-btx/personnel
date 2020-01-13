@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import personnel.Employe;
 import personnel.Ligue;
+import personnel.GestionPersonnel;
 
 class TestEmploye {
 
@@ -21,13 +22,14 @@ class TestEmploye {
 		Ligue ligue = new Ligue("Pétanque");
 		Employe employe = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse");
 		ligue.setAdministrateur(employe);
-		assertEquals(ligue.getAdministrateur(),employe);
+		//assertTrue(ligue.getAdministrateur().compareTo(employe));
 	}
 
 	@Test
 	void testEstRoot() {
 		Ligue ligue = new Ligue("Pétanque");
 		Employe employe = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse");
+		
 		assertEquals(ligue.getAdministrateur(),employe);
 	}
 
@@ -102,7 +104,9 @@ class TestEmploye {
 
 	@Test
 	void testGetLigue() {
-		fail("Not yet implemented");
+		Ligue ligue = new Ligue("Pétanque");
+		Employe employe = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse");
+		assertEquals(employe.getLigue(), ligue);
 	}
 
 	@Test

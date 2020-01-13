@@ -8,7 +8,7 @@ import personnel.*;
 
 class testLigue 
 {
-	//createLigue getNom de ligue OK
+	//createLigue getNom OK
 	@Test
 	void createLigue() 
 	{
@@ -44,24 +44,34 @@ class testLigue
 	}
 	
 	
-	// compareTo KO
+	// compareTo KO TODO
 	@Test
 	void compareTo() {
 		Ligue ligue = new Ligue("Pétanque");
-		Ligue autre = new Ligue("Flechettes");
+		Ligue autre = new Ligue("Fléchettes");
 		assertEquals(ligue.compareTo(autre), ligue.getNom().compareTo(autre.getNom()));
 
-		//System.out.println(ligue.getNom().compareTo(autre.getNom()));
+		System.out.println(ligue.getNom().compareTo(autre.getNom()));
 		
 	}
 	
 	// setNom OK
 	@Test
 	void testSetNom() {
-		Ligue ligue = new Ligue("Pétanque");
-		String newLigue = "Fléchettes";
-		ligue.setNom(newLigue);
-		assertNotSame(ligue.getNom(),ligue);
+		String ligue = "Pétanque";
+		String ligue2 = "Fléchettes";
+		Ligue laligue = new Ligue(ligue);
+		laligue.setNom(ligue2);
+		assertNotSame(laligue.getNom(),ligue);
+
+	}
+	
+	@Test
+	void remove() {
+		Ligue ligue = new Ligue("Fléchettes");
+		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty"); 
+		employe.remove();
+		assertFalse(ligue.getEmployes().contains(employe));
 	}
 	
 	

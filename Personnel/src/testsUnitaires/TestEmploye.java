@@ -111,7 +111,12 @@ class TestEmploye {
 
 	@Test
 	void testRemove() {
-		fail("Not yet implemented");
+		Ligue ligue = new Ligue("Pétanque");
+		Employe employe1 = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse");
+		Employe employe2 = ligue.addEmploye("Gisèle","Prune","Prunette@gmail.com","azertyuiop");
+		employe1.remove();
+		assertTrue(ligue.getEmployes().contains(employe2));
+		
 	}
 
 	@Test

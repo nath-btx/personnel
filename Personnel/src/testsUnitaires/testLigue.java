@@ -26,12 +26,12 @@ class testLigue
 	}
 
 	
-	// setAdministrateur KO
+	// setAdministrateur OK
 	@Test
-	void setAdministrateur() {
+	void testSetAdministrateur() {
 		Ligue ligue = new Ligue("Fléchettes");
 		Employe administrateur = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty"); 
-		setAdministrateur(administrateur);
+		ligue.setAdministrateur(administrateur);
 		assertEquals(administrateur, ligue.getAdministrateur());
 	}
 	
@@ -44,12 +44,30 @@ class testLigue
 	}
 	
 	
-	
+	// compareTo KO
 	@Test
 	void compareTo() {
 		Ligue ligue = new Ligue("Pétanque");
 		Ligue autre = new Ligue("Flechettes");
-		assert(compareTo(autre, ligue));
+		
+		assertEquals(ligue.compareTo(autre), ligue.getNom().compareTo(autre.getNom()));
+
+		System.out.println(ligue.getNom().compareTo(autre.getNom()));
+		
+	}
+	
+	// getNom & setNom
+	@Test
+	void testGetNom() {
+		Ligue ligue = new Ligue("Pétanque");
+		ligue.setNom("Pétanque");
+		assertEquals(ligue.getNom(),ligue);
+		System.out.println(ligue.getNom());
+	}
+	
+	@Test
+	void testGetAdministrateur () {
+		fail("Not yet implemented");
 	}
 }
 

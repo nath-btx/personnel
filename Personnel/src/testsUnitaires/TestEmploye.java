@@ -18,12 +18,17 @@ class TestEmploye {
 
 	@Test
 	void testEstAdmin() {
-		fail("Not yet implemented");
+		Ligue ligue = new Ligue("Pétanque");
+		Employe employe = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse");
+		ligue.setAdministrateur(employe);
+		assertEquals(ligue.getAdministrateur(),employe);
 	}
 
 	@Test
 	void testEstRoot() {
-		fail("Not yet implemented");
+		Ligue ligue = new Ligue("Pétanque");
+		Employe employe = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse");
+		assertEquals(ligue.getAdministrateur(),employe);
 	}
 
 	@Test
@@ -64,16 +69,14 @@ class TestEmploye {
 	@Test
 	void testGetMail() {
 		Ligue ligue = new Ligue("Pétanque");
-		Employe employe = new Employe (ligue,"surname","name","mail","pass");
-		String mail = "MickaelJanothan@gmail.com";
-		employe.setMail(mail);
-		assertEquals(employe.getMail(),mail);
+		Employe employe = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse");
+		System.out.println(employe.getMail());
 	}
 
 	@Test
 	void testSetMail() {
 		Ligue ligue = new Ligue("Pétanque");
-		Employe employe = new Employe (ligue,"surname","name","mail","pass");
+		Employe employe = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse");
 		String mail = "MickaelJanothan@gmail.com";
 		employe.setMail(mail);
 		assertEquals(employe.getMail(),mail);
@@ -82,19 +85,19 @@ class TestEmploye {
 	@Test
 	void testCheckPassword() {
 		Ligue ligue = new Ligue("Pétanque");
-		Employe employe = new Employe (ligue,"surname","name","mail","pass");
-		String password = "toto94200";
-		employe.setPassword(password);
-		assertEquals(employe.CheckPassword(),password);
+		Employe employe = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse");
+		String mdp = "motdepasse";
+		assertTrue(employe.checkPassword(mdp));
 	}
 
 	@Test
 	void testSetPassword() {
 		Ligue ligue = new Ligue("Pétanque");
-		Employe employe = new Employe (ligue,"surname","name","mail","pass");
+		Employe employe = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse");
 		String password = "toto94200";
 		employe.setPassword(password);
-		assertEquals(employe.CheckPassword(),password);
+		assertTrue(employe.checkPassword(password));
+		
 	}
 
 	@Test

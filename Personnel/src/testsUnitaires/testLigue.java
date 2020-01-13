@@ -26,7 +26,7 @@ class testLigue
 	}
 
 	
-	// setAdministrateur OK
+	// setAdministrateur getAdministrateur OK
 	@Test
 	void testSetAdministrateur() {
 		Ligue ligue = new Ligue("Fléchettes");
@@ -51,22 +51,19 @@ class testLigue
 		Ligue autre = new Ligue("Flechettes");
 		assertEquals(ligue.compareTo(autre), ligue.getNom().compareTo(autre.getNom()));
 
-		System.out.println(ligue.getNom().compareTo(autre.getNom()));
+		//System.out.println(ligue.getNom().compareTo(autre.getNom()));
 		
 	}
 	
 	// setNom OK
 	@Test
-	void testGetNom() {
+	void testSetNom() {
 		Ligue ligue = new Ligue("Pétanque");
 		String newLigue = "Fléchettes";
 		ligue.setNom(newLigue);
 		assertNotSame(ligue.getNom(),ligue);
 	}
 	
-	@Test
-	void testGetAdministrateur () {
-		fail("Not yet implemented");
-	}
+	
 }
 

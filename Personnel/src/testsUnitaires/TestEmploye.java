@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import personnel.Employe;
+import personnel.GestionPersonnel;
 import personnel.Ligue;
 
 class TestEmploye {
@@ -18,12 +19,18 @@ class TestEmploye {
 
 	@Test
 	void testEstAdmin() {
-		fail("Not yet implemented");
+		Ligue ligue = new Ligue("Fléchettes");
+		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty");
+		ligue.setAdministrateur(employe);
+		//assertTrue(ligue.getAdministrateur(), employe);
 	}
 
 	@Test
 	void testEstRoot() {
-		fail("Not yet implemented");
+		Ligue ligue = new Ligue("Fléchettes");
+		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty"); 
+		//ligue.getRoot(employe);
+		//assertTrue(employe, getRoot());
 	}
 
 	@Test

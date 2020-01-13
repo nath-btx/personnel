@@ -11,7 +11,9 @@ class TestEmploye {
 
 	@Test
 	void testEmploye() {
-		fail("Not yet implemented");
+		Ligue ligue = new Ligue("Fléchettes");
+		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty"); 
+		assertEquals(employe, ligue.getEmployes().first());
 	}
 
 	@Test

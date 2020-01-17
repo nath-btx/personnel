@@ -1,5 +1,6 @@
 package personnel;
 
+import java.time.LocalDate;
 import java.io.Serializable;
 
 /**
@@ -14,15 +15,17 @@ public class Employe implements Serializable, Comparable<Employe>
 {
 	private static final long serialVersionUID = 4795721718037994734L;
 	private String nom, prenom, password, mail;
+	private LocalDate datearrivee;
 	private Ligue ligue;
 	
-	 Employe(Ligue ligue, String nom, String prenom, String mail, String password)
+	 Employe(Ligue ligue, String nom, String prenom, String mail, String password, LocalDate datearrivee)
 	{
 		this.nom = nom;
 		this.prenom = prenom;
 		this.password = password;
 		this.mail = mail;
 		this.ligue = ligue;
+		this.datearrivee = datearrivee;
 	}
 	
 	/**
@@ -131,7 +134,16 @@ public class Employe implements Serializable, Comparable<Employe>
 	{
 		this.password= password;
 	}
-
+	
+	public void setDateArrivee()
+	{
+		datearrivee= LocalDate.now();
+	}
+	
+	public LocalDate getdateArrivee()
+	{
+		return datearrivee;
+	}
 	/**
 	 * Retourne la ligue à laquelle l'employé est affecté.
 	 * @return la ligue à laquelle l'employé est affecté.

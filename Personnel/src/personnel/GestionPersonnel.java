@@ -1,9 +1,11 @@
 package personnel;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.SortedSet;
 import java.util.TreeSet;
+
 
 /**
  * Gestion du personnel. Un seul objet de cette classe existe.
@@ -20,7 +22,7 @@ public class GestionPersonnel implements Serializable
 	private static final long serialVersionUID = -105283113987886425L;
 	private static GestionPersonnel gestionPersonnel = null;
 	private SortedSet<Ligue> ligues;
-	private Employe root = new Employe(null, "root", "", "", "toor");
+	private Employe root = new Employe(null, "root", "", "", "toor",LocalDate.now());
 	private static Passerelle passerelle = new serialisation.Serialization();
 	
 	/**

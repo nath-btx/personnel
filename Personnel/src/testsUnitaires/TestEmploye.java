@@ -22,21 +22,19 @@ class TestEmploye {
 		Ligue ligue = new Ligue("Pétanque");
 		Employe employe = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse");
 		ligue.setAdministrateur(employe);
-		//assertTrue(ligue.getAdministrateur().compareTo(employe));
+		assertTrue(ligue.getAdministrateur(),employe);
 	}
 
 	@Test
 	void testEstRoot() {
-		Ligue ligue = new Ligue("Pétanque");
-		Employe employe = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse");
-		
+		Employe employe = getRoot();
 		assertEquals(ligue.getAdministrateur(),employe);
 	}
 
 	@Test
 	void testGetNom() {
 		Ligue ligue = new Ligue("Pétanque");
-		Employe employe = new Employe (ligue,"surname","name","mail","pass");
+		Employe employe = ligue.addEmploye("Janothan","Druker","Michou@gmail.com","motdepasse");
 		String nom = "Janothan";
 		employe.setNom(nom);
 		assertEquals(employe.getNom(),nom);
@@ -44,7 +42,7 @@ class TestEmploye {
 	@Test
 	void testSetNom() {
 		Ligue ligue = new Ligue("Pétanque");
-		Employe employe = new Employe (ligue,"surname","name","mail","pass");
+		Employe employe = ligue.addEmploye("Janothan","Druker","Michou@gmail.com","motdepasse");
 		String nom = "Janothan";
 		employe.setNom(nom);
 		assertEquals(employe.getNom(),nom);
@@ -53,7 +51,7 @@ class TestEmploye {
 	@Test
 	void testGetPrenom() {
 		Ligue ligue = new Ligue("Pétanque");
-		Employe employe = new Employe (ligue,"surname","name","mail","pass");
+		Employe employe = ligue.addEmploye("Mickael","Druker","Michou@gmail.com","motdepasse");
 		String prénom = "Mickael";
 		employe.setPrenom(prénom);
 		assertEquals(employe.getPrenom(),prénom);
@@ -62,7 +60,7 @@ class TestEmploye {
 	@Test
 	void testSetPrenom() {
 		Ligue ligue = new Ligue("Pétanque");
-		Employe employe = new Employe (ligue,"surname","name","mail","pass");
+		Employe employe = ligue.addEmploye("Mickael","Druker","Michou@gmail.com","motdepasse");
 		String prénom = "Mickael";
 		employe.setPrenom(prénom);
 		assertEquals(employe.getPrenom(),prénom);
@@ -116,7 +114,6 @@ class TestEmploye {
 		Employe employe2 = ligue.addEmploye("Gisèle","Prune","Prunette@gmail.com","azertyuiop");
 		employe1.remove();
 		assertTrue(ligue.getEmployes().contains(employe2));
-		
 	}
 
 	@Test

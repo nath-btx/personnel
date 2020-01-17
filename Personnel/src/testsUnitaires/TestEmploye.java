@@ -30,10 +30,9 @@ class TestEmploye {
 	//estRoot = KO
 	@Test
 	void testEstRoot() {
-		Ligue ligue = new Ligue("Pétanque");
-		Employe employe = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse");
-		
-		assertEquals(ligue.getAdministrateur(),employe);
+		Employe root = new Employe(root,("Denis"));
+		root.estRoot();
+		assertTrue(root.estRoot());
 	}
 	//textSetNom & GetNom = ok 
 	@Test
@@ -97,7 +96,7 @@ class TestEmploye {
 		Employe employe1 = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse");
 		employe1.remove();
 		assertFalse(ligue.getEmployes().contains(employe1));
-		assertEquals(employe1.getLigue(),ligue);
+		assertNotEquals(employe1.getLigue(),ligue);
 		
 	}
 	// CompareTo = ok

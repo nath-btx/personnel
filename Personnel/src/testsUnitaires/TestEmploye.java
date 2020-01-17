@@ -100,7 +100,6 @@ class TestEmploye {
 		assertFalse(ligue.getEmployes().contains(employe1));
 		assertNull(employe1.getLigue());
 		assertTrue(ligue.getAdministrateur().equals(employe2));
-		
 	}
 	// CompareTo = ok
 	@Test

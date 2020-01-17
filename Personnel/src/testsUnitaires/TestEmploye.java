@@ -79,6 +79,7 @@ class TestEmploye {
 		String password = "toto94200";
 		employe.setPassword(password);
 		assertTrue(employe.checkPassword(password));
+		assertFalse(employe.checkPassword("troll"));
 		
 	}
 // GetLigue = ok

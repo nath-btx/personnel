@@ -23,6 +23,7 @@ class testLigue
 		Ligue ligue = new Ligue("Fléchettes");
 		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty"); 
 		assertEquals(employe, ligue.getEmployes().first());
+	
 	}
 
 	
@@ -74,9 +75,8 @@ class testLigue
 	void remove() {
 		Ligue ligue = new Ligue("Fléchettes");
 		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty"); 
-		employe.remove();
-		assertFalse(ligue.getEmployes().contains(employe));
-		System.out.println(employe.getLigue());
+		ligue.remove();
+		assertNull(ligue.getEmployes().contains(employe));
 		assertNull(employe.getLigue());
 		//TODO
 		// getLigue de Gérard -> me retourne nul

@@ -108,7 +108,7 @@ class TestEmploye {
 		Employe employe2 = ligue.addEmploye("Giselle","Du trou","Giselledutrou@gmail.com","puit");
 		assertNotEquals(employe1.getPrenom().compareTo(employe2.getPrenom()),0);
 	}
-	// ToString = ok
+	// ToString = OK
 	@Test
 	void testToString() {
 		Ligue ligue = new Ligue("Pétanque");

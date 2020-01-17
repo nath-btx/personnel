@@ -135,9 +135,9 @@ public class Employe implements Serializable, Comparable<Employe>
 		this.password= password;
 	}
 	
-	public void setDateArrivee(LocalDate datearrivee)
+	public void setDateArrivee()
 	{
-		this.datearrivee= LocalDate.now();
+		datearrivee= LocalDate.now();
 	}
 	
 	public LocalDate getdateArrivee()

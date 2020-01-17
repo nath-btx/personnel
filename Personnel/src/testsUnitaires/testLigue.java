@@ -50,9 +50,14 @@ class testLigue
 	void compareTo() {
 		Ligue ligue = new Ligue("Pétanque");
 		Ligue autre = new Ligue("Fléchettes");
+<<<<<<< HEAD
 		assertEquals(ligue.compareTo(autre), ligue.getNom().compareTo(autre.getNom()));
 		assertTrue(ligue.compareTo(autre) > 0);
 		assertTrue(ligue.compareTo(ligue) == 0);
+=======
+		assertTrue(ligue.compareTo(autre) >= 0);
+
+>>>>>>> b9163f480e9bd298fb8afb0156c815bbd2ce6c72
 		System.out.println(ligue.getNom().compareTo(autre.getNom()));
 		
 	}
@@ -64,7 +69,11 @@ class testLigue
 		String ligue2 = "Fléchettes";
 		Ligue laligue = new Ligue(ligue);
 		laligue.setNom(ligue2);
+<<<<<<< HEAD
 		assertTrue(laligue.getNom() == ligue2);
+=======
+		assertTrue(laligue.getNom(),ligue);
+>>>>>>> b9163f480e9bd298fb8afb0156c815bbd2ce6c72
 
 	}
 	

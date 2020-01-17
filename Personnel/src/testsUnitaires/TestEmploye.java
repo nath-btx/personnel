@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import personnel.Employe;
-import personnel.GestionPersonnel;
 import personnel.Ligue;
 import personnel.GestionPersonnel;
 
@@ -20,36 +19,24 @@ class TestEmploye {
 
 	@Test
 	void testEstAdmin() {
-<<<<<<< HEAD
-		Ligue ligue = new Ligue("Fléchettes");
-		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty");
-		ligue.setAdministrateur(employe);
-		//assertTrue(ligue.getAdministrateur(), employe);
-=======
 		Ligue ligue = new Ligue("Pétanque");
 		Employe employe = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse");
 		ligue.setAdministrateur(employe);
 		assertTrue(ligue.getAdministrateur(),employe);
->>>>>>> b9163f480e9bd298fb8afb0156c815bbd2ce6c72
 	}
 
 	@Test
 	void testEstRoot() {
-<<<<<<< HEAD
-		Ligue ligue = new Ligue("Fléchettes");
-		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty"); 
-		//ligue.getRoot(employe);
-		//assertTrue(employe, getRoot());
-=======
-		Employe employe = getRoot();
+		Ligue ligue = new Ligue("Pétanque");
+		Employe employe = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse");
+		
 		assertEquals(ligue.getAdministrateur(),employe);
->>>>>>> b9163f480e9bd298fb8afb0156c815bbd2ce6c72
 	}
 
 	@Test
 	void testGetNom() {
 		Ligue ligue = new Ligue("Pétanque");
-		Employe employe = ligue.addEmploye("Janothan","Druker","Michou@gmail.com","motdepasse");
+		Employe employe = new Employe (ligue,"surname","name","mail","pass");
 		String nom = "Janothan";
 		employe.setNom(nom);
 		assertEquals(employe.getNom(),nom);
@@ -57,7 +44,7 @@ class TestEmploye {
 	@Test
 	void testSetNom() {
 		Ligue ligue = new Ligue("Pétanque");
-		Employe employe = ligue.addEmploye("Janothan","Druker","Michou@gmail.com","motdepasse");
+		Employe employe = new Employe (ligue,"surname","name","mail","pass");
 		String nom = "Janothan";
 		employe.setNom(nom);
 		assertEquals(employe.getNom(),nom);
@@ -66,7 +53,7 @@ class TestEmploye {
 	@Test
 	void testGetPrenom() {
 		Ligue ligue = new Ligue("Pétanque");
-		Employe employe = ligue.addEmploye("Mickael","Druker","Michou@gmail.com","motdepasse");
+		Employe employe = new Employe (ligue,"surname","name","mail","pass");
 		String prénom = "Mickael";
 		employe.setPrenom(prénom);
 		assertEquals(employe.getPrenom(),prénom);
@@ -75,7 +62,7 @@ class TestEmploye {
 	@Test
 	void testSetPrenom() {
 		Ligue ligue = new Ligue("Pétanque");
-		Employe employe = ligue.addEmploye("Mickael","Druker","Michou@gmail.com","motdepasse");
+		Employe employe = new Employe (ligue,"surname","name","mail","pass");
 		String prénom = "Mickael";
 		employe.setPrenom(prénom);
 		assertEquals(employe.getPrenom(),prénom);
@@ -129,6 +116,7 @@ class TestEmploye {
 		Employe employe2 = ligue.addEmploye("Gisèle","Prune","Prunette@gmail.com","azertyuiop");
 		employe1.remove();
 		assertTrue(ligue.getEmployes().contains(employe2));
+		
 	}
 
 	@Test

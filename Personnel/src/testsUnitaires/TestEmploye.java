@@ -89,14 +89,16 @@ class TestEmploye {
 		Employe employe = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse");
 		assertEquals(employe.getLigue(), ligue);
 	}
-	// Remove = ok
+	// Remove = Ko
 	@Test
 	void testRemove() {
 		Ligue ligue = new Ligue("Pétanque");
 		Employe employe1 = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse");
+		employe1.estAdmin(ligue);
 		employe1.remove();
 		assertFalse(ligue.getEmployes().contains(employe1));
 		assertNotEquals(employe1.getLigue(),ligue);
+		
 		
 	}
 	// CompareTo = ok

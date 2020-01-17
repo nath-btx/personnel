@@ -148,17 +148,18 @@ public class Employe implements Serializable, Comparable<Employe>
 	 */
 	
 	public void remove()
-	{
-		Employe root = GestionPersonnel.getGestionPersonnel().getRoot();
-		if (this != root)
-		{
-			if (estAdmin(getLigue()))
-				getLigue().setAdministrateur(root);
-			ligue.remove(this);
-		}
-		else
-			throw new ImpossibleDeSupprimerRoot();
-	}
+    {
+        Employe root = GestionPersonnel.getGestionPersonnel().getRoot();
+        if (this != root)
+        {
+            if (estAdmin(getLigue()))
+                getLigue().setAdministrateur(root);
+            ligue.remove(this);
+            this.ligue = null;
+        }
+        else
+            throw new ImpossibleDeSupprimerRoot();
+    }
 
 	@Override
 	public int compareTo(Employe autre)

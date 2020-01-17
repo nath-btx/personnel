@@ -41,6 +41,7 @@ class testLigue
 		Ligue ligue = new Ligue("Fléchettes");
 		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty"); 
 		assertEquals(employe, ligue.getEmployes().first());
+		//Vérifier qu'il n'est pas ajouté 2 fois
 	}
 	
 	
@@ -50,7 +51,8 @@ class testLigue
 		Ligue ligue = new Ligue("Pétanque");
 		Ligue autre = new Ligue("Fléchettes");
 		assertEquals(ligue.compareTo(autre), ligue.getNom().compareTo(autre.getNom()));
-
+		assertTrue(ligue.compareTo(autre) > 0);
+		assertTrue(ligue.compareTo(ligue) == 0);
 		System.out.println(ligue.getNom().compareTo(autre.getNom()));
 		
 	}
@@ -62,7 +64,7 @@ class testLigue
 		String ligue2 = "Fléchettes";
 		Ligue laligue = new Ligue(ligue);
 		laligue.setNom(ligue2);
-		assertNotSame(laligue.getNom(),ligue);
+		assertTrue(laligue.getNom() == ligue2);
 
 	}
 	
@@ -72,6 +74,7 @@ class testLigue
 		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty"); 
 		employe.remove();
 		assertFalse(ligue.getEmployes().contains(employe));
+		// getLigue de Gérard -> me retourne nul
 	}
 	
 	

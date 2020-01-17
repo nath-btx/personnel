@@ -14,7 +14,8 @@ class TestEmploye {
 	void testEmploye() {
 		Ligue ligue = new Ligue("Fléchettes");
 		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty"); 
-		assertEquals(employe, ligue.getEmployes().first());
+		assertTrue(ligue.getEmployes().contains(employe));
+		assertEquals(employe.getLigue(),ligue);
 	}
 
 	@Test

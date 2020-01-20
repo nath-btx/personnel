@@ -69,7 +69,6 @@ class testLigue
 		laligue.setNom(ligue2);
 		assertTrue(laligue.getNom() == ligue2);
 		assertTrue(laligue.getNom() != ligue);
-
 	}
 	
 	@Test
@@ -77,11 +76,14 @@ class testLigue
 		Ligue ligue = new Ligue("Fléchettes");
 		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty", LocalDate.now(), LocalDate.now()); 
 		ligue.remove();
+		System.out.println(ligue.getEmployes());
+		System.out.println(employe.getLigue());
 		assertNull(ligue.getEmployes().contains(employe));
 		assertNull(employe.getLigue());
 		//TODO
 		// getLigue de Gérard -> me retourne nul
 	}
+	
 	
 	
 }

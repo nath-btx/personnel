@@ -22,7 +22,7 @@ class testLigue
 	void addEmploye() 
 	{
 		Ligue ligue = new Ligue("Fléchettes");
-		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty", LocalDate.now()); 
+		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty", LocalDate.now(), LocalDate.now()); 
 		assertEquals(employe, ligue.getEmployes().first());
 	
 	}
@@ -32,7 +32,7 @@ class testLigue
 	@Test
 	void testSetAdministrateur() {
 		Ligue ligue = new Ligue("Fléchettes");
-		Employe administrateur = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty", LocalDate.now()); 
+		Employe administrateur= ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty", LocalDate.now(), LocalDate.now()); 
 		ligue.setAdministrateur(administrateur);
 		assertEquals(administrateur, ligue.getAdministrateur());
 	}
@@ -41,7 +41,7 @@ class testLigue
 	@Test
 	void getEmployes() {
 		Ligue ligue = new Ligue("Fléchettes");
-		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty", LocalDate.now()); 
+		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty", LocalDate.now(), LocalDate.now()); 
 		assertEquals(employe, ligue.getEmployes().first());
 		//Vérifier qu'il n'est pas ajouté 2 fois
 	}
@@ -75,7 +75,7 @@ class testLigue
 	@Test
 	void remove() {
 		Ligue ligue = new Ligue("Fléchettes");
-		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty", LocalDate.now()); 
+		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty", LocalDate.now(), LocalDate.now()); 
 		ligue.remove();
 		assertNull(ligue.getEmployes().contains(employe));
 		assertNull(employe.getLigue());

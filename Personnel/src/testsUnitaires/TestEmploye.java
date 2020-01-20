@@ -90,7 +90,7 @@ class TestEmploye {
 		Employe employe = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse",LocalDate.now());
 		assertEquals(employe.getLigue(), ligue);
 	}
-	// Remove = Ko
+	// Remove = ok
 	@Test
 	void testRemove() {
 		Ligue ligue = new Ligue("Pétanque");
@@ -100,7 +100,7 @@ class TestEmploye {
 		employe1.remove();
 		assertFalse(ligue.getEmployes().contains(employe1));
 		assertNull(employe1.getLigue());
-		assertTrue(ligue.getAdministrateur().equals(employe2));
+		assertTrue(ligue.getAdministrateur().equals(employe2));		
 	}
 	// CompareTo = ok
 	@Test
@@ -116,6 +116,15 @@ class TestEmploye {
 		Ligue ligue = new Ligue("Pétanque");
 		Employe employe = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse",LocalDate.now());
 		assertEquals(employe.toString(), "Michel Druker Michou@gmail.com ("+ligue.toString()+")");
+	}
+	// SetDateArriver & GetDateArriver = Ok
+	@Test
+	void testSetDateArriver() {
+		Ligue ligue = new Ligue("Pétanque");
+		Employe employe = ligue.addEmploye("Michel","Druker","Michou@gmail.com","motdepasse",LocalDate.now());
+		LocalDate date = LocalDate.of(2000, 12, 12);
+		employe.setDateArrivee(date);
+		assertTrue(employe.getdateArrivee()==date);
 	}
 }
 

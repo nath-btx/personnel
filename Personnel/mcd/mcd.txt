@@ -1,3 +1,3 @@
-EMPLOYE: idnum, nom, prenom, mail, mdp
+EMPLOYE: idnum, nom, prenom, mail, mdp, dateArrivée, dateDepart
 APPARTIENT, 01 LIGUE, 0N EMPLOYE: droits
 LIGUE: idligue, nomligue

@@ -3,7 +3,7 @@ package personnel;
 import java.time.LocalDate;
 import java.io.Serializable;
 
-/**
+/**t
  * Employé d'une ligue hébergée par la M2L. Certains peuvent 
  * être administrateurs des employés de leur ligue.
  * Un seul employé, rattaché à aucune ligue, est le root.
@@ -18,7 +18,7 @@ public class Employe implements Serializable, Comparable<Employe>
 	private LocalDate datearrivee, datedepart;
 	private Ligue ligue;
 	
-	 Employe(Ligue ligue, String nom, String prenom, String mail, String password, LocalDate datearrivee, LocalDate datedepart)
+	 Employe(Ligue ligue, String nom, String prenom, String mail, String password, LocalDate datearrivee)
 	{
 		this.nom = nom;
 		this.prenom = prenom;
@@ -26,7 +26,6 @@ public class Employe implements Serializable, Comparable<Employe>
 		this.mail = mail;
 		this.ligue = ligue;
 		this.datearrivee = datearrivee;
-		this.datedepart = datedepart;
 	}
 	
 	/**

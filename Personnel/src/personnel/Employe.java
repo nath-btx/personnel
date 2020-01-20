@@ -15,10 +15,10 @@ public class Employe implements Serializable, Comparable<Employe>
 {
 	private static final long serialVersionUID = 4795721718037994734L;
 	private String nom, prenom, password, mail;
-	private LocalDate datearrivee;
+	private LocalDate datearrivee, datedepart;
 	private Ligue ligue;
 	
-	 Employe(Ligue ligue, String nom, String prenom, String mail, String password, LocalDate datearrivee)
+	 Employe(Ligue ligue, String nom, String prenom, String mail, String password, LocalDate datearrivee, LocalDate datedepart)
 	{
 		this.nom = nom;
 		this.prenom = prenom;
@@ -140,10 +140,23 @@ public class Employe implements Serializable, Comparable<Employe>
 		this.datearrivee= datearrivee;
 	}
 	
-	public LocalDate getdateArrivee()
+	public LocalDate getDateArrivee()
 	{
 		return datearrivee;
 	}
+	
+	public void setDateDepart(LocalDate datedepart)
+	{
+		this.datedepart= datedepart;
+	}
+	
+	public LocalDate getDateDepart()
+	{
+		return datedepart;
+	}
+	
+	
+	
 	/**
 	 * Retourne la ligue à laquelle l'employé est affecté.
 	 * @return la ligue à laquelle l'employé est affecté.

@@ -86,7 +86,7 @@ class TestEmploye {
 		Ligue ligue = new Ligue("Pétanque");
 		Employe employe1 = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty",LocalDate.now());
 		Employe employe2 = GestionPersonnel.getGestionPersonnel().getRoot();
-		employe1.estAdmin(ligue);
+		ligue.setAdministrateur(employe1);
 		employe1.remove();
 		assertFalse(ligue.getEmployes().contains(employe1));
 		assertNull(employe1.getLigue());
@@ -114,7 +114,7 @@ class TestEmploye {
 		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty",LocalDate.now());
 		LocalDate date = LocalDate.of(2000, 12, 12);
 		employe.setDateArrivee(date);
-		assertTrue(employe.getDateArrivee()==date);
+		assertEquals(employe.getDateArrivee(),date);
 	}
 	// SetDateDepart & GetDateDepart = Ok
 	@Test
@@ -123,7 +123,7 @@ class TestEmploye {
 		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty",LocalDate.now());
 		LocalDate date = LocalDate.of(2020, 12, 22);
 		employe.setDateDepart(date);
-		assertTrue(employe.getDateDepart()==date);
+		assertEquals(employe.getDateDepart(),date);
 	}
 	
 }

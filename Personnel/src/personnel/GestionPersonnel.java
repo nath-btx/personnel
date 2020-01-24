@@ -22,7 +22,7 @@ public class GestionPersonnel implements Serializable
 	private static final long serialVersionUID = -105283113987886425L;
 	private static GestionPersonnel gestionPersonnel = null;
 	private SortedSet<Ligue> ligues;
-	private Employe root = new Employe(null, "root", "", "", "toor",LocalDate.now(),LocalDate.now());
+	private Employe root = new Employe(null, "root", "", "", "toor",LocalDate.now());
 	private static Passerelle passerelle = new serialisation.Serialization();
 	
 	/**

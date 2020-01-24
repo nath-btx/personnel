@@ -1,0 +1,22 @@
+droit dans employé
+rebasage github
+declencher exception si datearrive / datedepart
+
+estRoot:
+rajouter un test pour verifier si pas root
+
+testRemove:
+employe1.estAdmin(ligue),
+remplacer par setAdmin
+
+
+testSetAdministrateur:
+refuser
+ou deplacer un employe si appartient pas a la ligue
+
+si admin retirer enlever ces droits
+
+si 2 admin
+
+
+remplace assert true avec == par des assert equals

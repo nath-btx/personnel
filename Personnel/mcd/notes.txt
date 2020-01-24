@@ -1,0 +1,8 @@
+Vérifier que les dates soient cohérentes
+Mettre assertEquals(x,y) au lieu de assertTrue(x==y) dans les tests unitaires 
+(testSetNom dans testLigue)
+Détecter si une exception a été déclenché
+Test estRoot -> deuxième test qui va vérifier si estRoot retourne false pour une personne qui n'est pas root
+testRemove changer estAdmin en setAdmin
+SetAdministrateur -> test si je rend un employé admin d'une ligue s'il n'est pas dans la ligue
+		  -> test s'il y a déjà un admin pour voir si l'ancien admin a ses droits enlevés

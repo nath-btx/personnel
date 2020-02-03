@@ -1,6 +1,8 @@
 package commandLine;
 
 import static commandLineMenus.rendering.examples.util.InOut.getString;
+import static commandLineMenus.rendering.examples.util.InOut.getInt;
+
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -62,7 +64,7 @@ public class LigueConsole
 		Menu menu = new Menu("Editer " + ligue.getNom());
 		menu.add(afficher(ligue));
 		menu.add(gererEmployes(ligue));
-		//menu.add(changerAdministrateur(ligue));
+		menu.add(changerAdministrateur(ligue));
 		menu.add(changerNom(ligue));
 		menu.add(supprimer(ligue));
 		menu.addBack("q");
@@ -90,11 +92,23 @@ public class LigueConsole
 				{
 					ligue.addEmploye(getString("nom : "), 
 						getString("prenom : "), getString("mail : "), 
-						getString("password : "), LocalDate.now());
+						getString("password : "), getDate());
 				}
 		);
 	}
 	
+	private static LocalDate getDate(){
+		int day = getInt("jour d'arrivée : ");
+		int month = getInt("mois d'arrivée : ");
+		int year = getInt("année d'arrivée : ");
+		
+		LocalDate inputDate = LocalDate.of(year,month,day);
+		
+		return inputDate;
+	}
+	
+	// Passer de 3 getInt à un LocalDate
+
 	private Menu gererEmployes(Ligue ligue)
 	{
 		Menu menu = new Menu("Gérer les employés de " + ligue.getNom(), "e");

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 27 jan. 2020 à 14:13
+-- Généré le :  lun. 03 fév. 2020 à 13:16
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -32,8 +32,8 @@ DROP TABLE IF EXISTS `appartient`;
 CREATE TABLE IF NOT EXISTS `appartient` (
   `IdNum` int(11) NOT NULL,
   `IdLigue` int(11) NOT NULL,
-  KEY `IdLigue` (`IdLigue`),
-  KEY `IdNum` (`IdNum`)
+  PRIMARY KEY (`IdNum`,`IdLigue`),
+  KEY `IdLigue` (`IdLigue`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

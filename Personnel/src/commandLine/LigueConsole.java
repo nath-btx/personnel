@@ -99,13 +99,21 @@ public class LigueConsole
 	{
 		Menu menu = new Menu("Gérer les employés de " + ligue.getNom(), "e");
 		menu.add(afficherEmployes(ligue));
+		menu.add(selectionnerEmployes(ligue));
+		menu.addBack("q");
+		
+		return menu;
+	}
+	private Menu selectionnerEmployes(Ligue ligue)
+	{
+		Menu menu = new Menu("Sélectionner les employés de " + ligue.getNom(), "s");	
 		menu.add(ajouterEmploye(ligue));
 		menu.add(modifierEmploye(ligue));
 		menu.add(supprimerEmploye(ligue));
 		menu.addBack("q");
+		
 		return menu;
 	}
-
 	private List<Employe> supprimerEmploye(final Ligue ligue)
 	{
 		return new List<>("Supprimer un employé", "s", 
@@ -131,5 +139,4 @@ public class LigueConsole
 	{
 		return new Option("Supprimer", "d", () -> {ligue.remove();});
 	}
-	
 }

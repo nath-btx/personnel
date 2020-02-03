@@ -98,7 +98,7 @@ public class LigueConsole
 	private Menu gererEmployes(Ligue ligue)
 	{
 		Menu menu = new Menu("Gérer les employés de " + ligue.getNom(), "e");
-		menu.add(afficherEmployes(ligue));
+		menu.add(ajouterEmploye(ligue));
 		menu.add(selectionnerEmployes(ligue));
 		menu.addBack("q");
 		
@@ -107,7 +107,7 @@ public class LigueConsole
 	private Menu selectionnerEmployes(Ligue ligue)
 	{
 		Menu menu = new Menu("Sélectionner les employés de " + ligue.getNom(), "s");	
-		menu.add(ajouterEmploye(ligue));
+		menu.add(afficherEmployes(ligue));
 		menu.add(modifierEmploye(ligue));
 		menu.add(supprimerEmploye(ligue));
 		menu.addBack("q");

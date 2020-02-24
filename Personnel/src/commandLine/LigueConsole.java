@@ -64,7 +64,7 @@ public class LigueConsole
 		Menu menu = new Menu("Editer " + ligue.getNom());
 		menu.add(afficher(ligue));
 		menu.add(gererEmployes(ligue));
-		menu.add(changerAdministrateur(ligue));
+		//menu.add(changerAdministrateur(ligue));
 		menu.add(changerNom(ligue));
 		menu.add(supprimer(ligue));
 		menu.addBack("q");
@@ -97,10 +97,10 @@ public class LigueConsole
 		);
 	}
 	
-	private static LocalDate getDate(){
-		int day = getInt("jour d'arrivée : ");
-		int month = getInt("mois d'arrivée : ");
-		int year = getInt("année d'arrivée : ");
+	public static LocalDate getDate(){
+		int day = getInt("Jour : ");
+		int month = getInt("Mois : ");
+		int year = getInt("Année : ");
 		
 		LocalDate inputDate = LocalDate.of(year,month,day);
 		
@@ -148,7 +148,7 @@ public class LigueConsole
 				(index, element) -> {employeConsole.editerEmploye(element);}
 				);
 	}
-	
+
 	private Option supprimer(Ligue ligue)
 	{
 		return new Option("Supprimer", "d", () -> {ligue.remove();});

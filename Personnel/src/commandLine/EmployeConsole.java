@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import commandLineMenus.Menu;
 import commandLineMenus.Option;
 import personnel.Employe;
-import personnel.GestionPersonnel;
+import commandLine.LigueConsole;
 
 
 public class EmployeConsole 

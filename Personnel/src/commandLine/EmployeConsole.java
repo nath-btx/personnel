@@ -29,8 +29,15 @@ public class EmployeConsole
 		menu.add(changerPassword(employe));
 		menu.add(changerDateArrivee(employe));
 		menu.add(changerDateDepart(employe));
+		menu.add(supprimerEmploye(employe));
 		menu.addBack("q");
 		return menu;
+	}
+	
+	private Option supprimerEmploye(final Employe employe)
+	{
+		return new Option("Supprimer " + employe.getNom()+" "+ employe.getPrenom(), "v"
+				,()->{employe.remove();});
 	}
 	
 

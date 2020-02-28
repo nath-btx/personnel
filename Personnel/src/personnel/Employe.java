@@ -15,7 +15,7 @@ public class Employe implements Serializable, Comparable<Employe>
 {
 	private static final long serialVersionUID = 4795721718037994734L;
 	private String nom, prenom, password, mail;
-	private LocalDate datearrivee, datedepart;
+	private LocalDate dateArrivee, dateDepart;
 	private Ligue ligue;
 	
 	 Employe(Ligue ligue, String nom, String prenom, String mail, String password, LocalDate datearrivee)
@@ -25,7 +25,7 @@ public class Employe implements Serializable, Comparable<Employe>
 		this.password = password;
 		this.mail = mail;
 		this.ligue = ligue;
-		this.datearrivee = datearrivee;
+		this.dateArrivee = datearrivee;
 	}
 	
 	/**
@@ -137,22 +137,22 @@ public class Employe implements Serializable, Comparable<Employe>
 	
 	public void setDateArrivee(LocalDate datearrivee)
 	{
-		this.datearrivee= datearrivee;
+		this.dateArrivee= datearrivee;
 	}
 	
 	public LocalDate getDateArrivee()
 	{
-		return datearrivee;
+		return dateArrivee;
 	}
 	
 	public void setDateDepart(LocalDate datedepart)
 	{
-		this.datedepart= datedepart;
+		this.dateDepart= datedepart;
 	}
 	
 	public LocalDate getDateDepart()
 	{
-		return datedepart;
+		return dateDepart;
 	}
 	
 	
@@ -198,7 +198,7 @@ public class Employe implements Serializable, Comparable<Employe>
 	@Override
 	public String toString()
 	{
-		String res = nom + " " + prenom + " " + mail + " " + datearrivee + " (";
+		String res = nom + " " + prenom + " " + mail + " " + dateArrivee + " " + dateDepart + " (";
 		if (estRoot())
 			res += "super-utilisateur";
 		else

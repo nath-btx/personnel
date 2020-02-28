@@ -126,7 +126,7 @@ public class LigueConsole
 		
 		return new List<>("Sélectionner un employé", "e", 
 				() -> new ArrayList<>(ligue.getEmployes()),
-				(element) -> editer(element));
+				(element) -> employeConsole.editerEmploye(element));
 		
 		/*
 		Menu menu = new Menu("Sélectionner les employés de " + ligue.getNom(), "s");	

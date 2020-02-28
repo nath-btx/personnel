@@ -16,7 +16,7 @@ public class EmployeConsole
 {
 	private Option afficher(final Employe employe)
 	{
-		return new Option("Afficher l'employé", "l", () -> {System.out.println(employe);});
+		return new Option("Afficher l'employé", "g", () -> {System.out.println(employe);});
 	}
 
 	Menu editerEmploye(Employe employe)
@@ -32,6 +32,7 @@ public class EmployeConsole
 		menu.addBack("q");
 		return menu;
 	}
+	
 
 	private Option changerNom(final Employe employe)
 	{

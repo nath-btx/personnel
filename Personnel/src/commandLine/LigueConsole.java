@@ -160,7 +160,11 @@ public class LigueConsole
 	
 	private List<Employe> changerAdministrateur(final Ligue ligue)
 	{
-		return null;}
+		return new List<>("sélectionner un nouvelle administrateur", "a", 
+				() -> new ArrayList<>(ligue.getEmployes()),
+				(index, element) -> {ligue.setAdministrateur(element);}
+				);
+	}	
 /*		
 		return new List<Employe>("Sélectionner l'employé qui deviendra admin", "o", 
 				() -> new ArrayList<>(ligue.getEmployes()),

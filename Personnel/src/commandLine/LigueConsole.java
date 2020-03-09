@@ -89,7 +89,7 @@ public class LigueConsole
 	
 	private Option ajouterEmploye(final Ligue ligue)
 	{
-		return new Option("ajouter un employé", "a",
+		return new Option("Ajouter un employé", "a",
 				() -> 
 				{
 					ligue.addEmploye(getString("nom : "), 
@@ -104,11 +104,12 @@ public class LigueConsole
 		int month = getInt("Mois : ");
 		int year = getInt("Année : ");
 		
-		LocalDate inputDate = LocalDate.of(year,month,day);
+		return LocalDate.of(year,month,day);
 		
-		return inputDate;
 	}
 	
+	// TODO attraper l'exception si les valeurs rentrées ne sont pas bonnes
+	// 
 	// Passer de 3 getInt à un LocalDate
 
 	private Menu gererEmployes(Ligue ligue)
@@ -117,6 +118,7 @@ public class LigueConsole
 		menu.add(afficherEmployes(ligue));
 		menu.add(ajouterEmploye(ligue));
 		menu.add(selectionnerEmployes(ligue));
+		//menu.add(changerAdministrateur(ligue));
 		menu.addBack("q");
 		return menu;
 	}
@@ -139,7 +141,7 @@ public class LigueConsole
 		 return menu;
 		 */
 	}
-	
+	/*
 	private Menu editer(Employe employe) {
 		Menu menu = new Menu("Gérer l'employé ");
 		menu.add(employeConsole.editerEmploye(employe));
@@ -147,6 +149,7 @@ public class LigueConsole
 		menu.addBack("q");
 		return menu;
 	}
+	*/
 	
 	
 	private Option supprimerEmploye(final Employe employe)
@@ -157,8 +160,14 @@ public class LigueConsole
 	
 	private List<Employe> changerAdministrateur(final Ligue ligue)
 	{
-		return null;
-	}		
+		return null;}
+/*		
+		return new List<Employe>("Sélectionner l'employé qui deviendra admin", "o", 
+				() -> new ArrayList<>(ligue.getEmployes()),
+				(element) -> ligue.setAdministrateur(element)
+				);
+	}
+
 /*
 	private List<Employe> modifierEmploye(final Ligue ligue)
 	{

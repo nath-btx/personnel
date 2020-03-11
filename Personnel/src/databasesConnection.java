@@ -1,17 +1,28 @@
 	import java.sql.Connection;
 	import java.sql.DriverManager;
+	import java.sql.Statement;
+	import java.sql.SQLException;
+	
+	
+	
 	public class databasesConnection {
 	   public static void main(String[] args) {
-	      String JdbcURL = "jdbc:mysql://localhost/application_ppe";
+
+	      String JdbcURL = "jdbc:mysql://localhost:3306/application_ppe";
 	      String Username = "root";
 	      String password = "";
-	      Connection con = null;
+	      
+	      Connection connection;
 	      try {
 	         System.out.println("Connecting to database..............."+JdbcURL);
-	         con=DriverManager.getConnection(JdbcURL, Username, password);
+	         Class.forName("com.mysql.cj.jdbc.Driver");
+	         connection = DriverManager.getConnection(JdbcURL, Username, password);
 	         System.out.println("Connection is successful!!!!!!");
 	      }
-	      catch(Exception e) {
+	      catch (ClassNotFoundException e) {
+	            e.printStackTrace();
+	      }
+	      catch(SQLException e) {
 	         e.printStackTrace();
 	      }
 	   }

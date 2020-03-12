@@ -16,14 +16,14 @@
 	      try {
 	         System.out.println("Connecting to database..............."+JdbcURL);
 	         Class.forName("com.mysql.cj.jdbc.Driver");
-//	         connection = DriverManager.getConnection(JdbcURL, Username, password);
-//	         System.out.println("Connection is successful!!!!!!");
+	         connection = DriverManager.getConnection(JdbcURL, Username, password);
+	         System.out.println("Connection is successful!!!!!!");
 	      }
 	      catch (ClassNotFoundException e) {
 	            e.printStackTrace();
 	      }
-//	      catch(SQLException e) {
-//	         e.printStackTrace();
-//	      }
+	      catch(SQLException e) {
+	         e.printStackTrace();
+	      }
 	   }
 	}

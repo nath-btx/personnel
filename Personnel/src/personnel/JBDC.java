@@ -7,7 +7,7 @@ package personnel;
 	import java.sql.ResultSet;
 	
 	
-	public interface JBDC extends Passerelle {
+	 public class JBDC implements Passerelle  {
 	   public static void main(String[] args) throws SQLException {
 
 	      String JdbcURL = "jdbc:mysql://localhost:3306/application_ppe?useUnicode=true & useJDBCCompliantTimezoneShift=true & useLegacyDatetimeCode = false & serverTimezone=UTC";
@@ -35,21 +35,21 @@ package personnel;
 	            System.out.println("Insert complete.");
 	            
 	            //update
-	            String update = "update employe set Mail='demo@test.com' where nom='toto'";
-	            
-	            int rowsAffected = myStmt.executeUpdate(update);
-	 
-	            System.out.println("Rows affected: " + rowsAffected);
-	            System.out.println("Update complete.");
+//	            String update = "update employe set Mail='demo@test.com' where nom='toto'";
+//	            
+//	            int rowsAffected = myStmt.executeUpdate(update);
+//	 
+//	            System.out.println("Rows affected: " + rowsAffected);
+//	            System.out.println("Update complete.");
 	            
 	            //delete
 	            
-	            String delete = "delete from employe where nom='toto'";
-	            
-	            int rowsAffected1 = myStmt.executeUpdate(delete);
-	 
-	            System.out.println("Rows affected: " + rowsAffected1);
-	            System.out.println("Delete complete.");
+//	            String delete = "delete from employe where nom='toto'";
+//	            
+//	            int rowsAffected1 = myStmt.executeUpdate(delete);
+//	 
+//	            System.out.println("Rows affected: " + rowsAffected1);
+//	            System.out.println("Delete complete.");
 	 
 	      }
 	      catch (ClassNotFoundException e) {
@@ -66,6 +66,18 @@ package personnel;
 	                connection.close();
 	            }
 	   }
+	}
+
+	@Override
+	public GestionPersonnel getGestionPersonnel() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void sauvegarderGestionPersonnel(GestionPersonnel gestionPersonnel) throws SauvegardeImpossible {
+		// TODO Auto-generated method stub
+		
 	}
 	}
 

@@ -160,11 +160,7 @@ public class LigueConsole
 	
 	private List<Employe> changerAdministrateur(final Ligue ligue)
 	{
-<<<<<<< HEAD
 			return new List<>("Sélectionner un nouvel administrateur", "s", 
-=======
-			return new List<>("sélectionner un nouvel administrateur", "a", 
->>>>>>> refs/remotes/origin/master
 					() -> new ArrayList<>(ligue.getEmployes()),
 					(index, element) -> {ligue.setAdministrateur(element);}
 					);

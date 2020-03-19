@@ -27,12 +27,9 @@ package personnel;
 	            myStmt = connection.createStatement();
 	 
 	            // 3. Execute SQL query
-<<<<<<< HEAD
-	            String sql = "insert into employe " + " (Nom, Prenom, Mail, Mdp, DateArrive, DateDepart, Level)"
-=======
+	            String sql = "insert into employe " + " (Nom, Prenom, Mail, Mdp, DateArrive, DateDepart, Level)";
 	            //insert
 	            String insert = "insert into employe " + " (Nom, Prenom, Mail, Mdp, DateArrive, DateDepart, Level)"
->>>>>>> refs/remotes/origin/master
 	                    + " values ('test','toto','test@test.com','test','2020-03-19','2020-04-19','0')";
 	 
 	            myStmt.executeUpdate(insert);

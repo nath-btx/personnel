@@ -1,3 +1,5 @@
+package personnel;
+
 	import java.sql.Connection;
 	import java.sql.DriverManager;
 	import java.sql.Statement;
@@ -5,7 +7,7 @@
 	import java.sql.ResultSet;
 	
 	
-	public class databasesConnection {
+	public interface JBDC extends Passerelle {
 	   public static void main(String[] args) throws SQLException {
 
 	      String JdbcURL = "jdbc:mysql://localhost:3306/application_ppe?useUnicode=true & useJDBCCompliantTimezoneShift=true & useLegacyDatetimeCode = false & serverTimezone=UTC";
@@ -28,7 +30,7 @@
 	 
 	            // 3. Execute SQL query
 	            String sql = "insert into employe " + " (IdEmploye, Nom, Prenom, Mail, Mdp, DateArrive, DateDepart, Level)"
-	                    + " values ('2', 'test','toto','test@test.com','test','2020-03-19','2020-04-19','0')";
+	                    + " values ('0', 'test','toto','test@test.com','test','2020-03-19','2020-04-19','0')";
 	 
 	            myStmt.executeUpdate(sql);
 	            
@@ -51,3 +53,4 @@
 	   }
 	}
 	}
+

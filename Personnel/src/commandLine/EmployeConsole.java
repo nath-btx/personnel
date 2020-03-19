@@ -1,7 +1,6 @@
 package commandLine;
 
-import static commandLineMenus.rendering.examples.util.InOut.getInt;
-import static commandLineMenus.rendering.examples.util.InOut.getString;
+import static commandLineMenus.rendering.examples.util.InOut.*;
 
 import java.time.LocalDate;
 
@@ -72,6 +71,8 @@ public class EmployeConsole
 	{
 		return new Option("Changer la date de départ", "d", () -> {employe.setDateDepart(getDate());});
 	}
+	
+	
 	
 	private LocalDate getDate(){
 		int day = getInt("Jour : ");

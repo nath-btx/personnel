@@ -1,6 +1,9 @@
 package personnel;
 
 import java.time.LocalDate;
+
+import static commandLineMenus.rendering.examples.util.InOut.getInt;
+
 import java.io.Serializable;
 
 /**t
@@ -145,10 +148,24 @@ public class Employe implements Serializable, Comparable<Employe>
 		return dateArrivee;
 	}
 	
-	public void setDateDepart(LocalDate datedepart)
-	{
-		this.dateDepart= datedepart;
-	}
+	public void setDateDepart(LocalDate dateDepart)
+    {
+		
+        if(dateDepart.isBefore(this.dateArrivee)) {
+            System.out.println("Date de fin inférieur à la date d'arrivée.");
+            int day = getInt("Jour : ");
+    		int month = getInt("Mois : ");
+    		int year = getInt("Année : ");
+    		
+    		LocalDate inputDate = LocalDate.of(year,month,day);
+    		setDateDepart(inputDate);
+        }
+        else {
+            this.dateDepart = dateDepart;
+        }
+
+
+    }
 	
 	public LocalDate getDateDepart()
 	{

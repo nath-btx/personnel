@@ -13,9 +13,6 @@ package personnel;
 	      String JdbcURL = "jdbc:mysql://localhost:3306/application_ppe?useUnicode=true & useJDBCCompliantTimezoneShift=true & useLegacyDatetimeCode = false & serverTimezone=UTC";
 	      String Username = "root";
 	      String password = "";
-	      //probleme fuseau horaire avec W10 il faut changer la timezone de mysql avec SET @@global.time_zone = '+00:00'; et
-	      // SET @@session.time_zone = '+00:00';
-	      //puis SELECT @@global.time_zone, @@session.time_zone; pour verifier que la time zone a bien etait modifié
 	      Connection connection = null;
 	      
 	      Statement myStmt = null;
@@ -29,12 +26,30 @@ package personnel;
 	            myStmt = connection.createStatement();
 	 
 	            // 3. Execute SQL query
-	            String sql = "insert into employe " + " (IdEmploye, Nom, Prenom, Mail, Mdp, DateArrive, DateDepart, Level)"
-	                    + " values ('0', 'test','toto','test@test.com','test','2020-03-19','2020-04-19','0')";
+	            //insert
+	            String insert = "insert into employe " + " (Nom, Prenom, Mail, Mdp, DateArrive, DateDepart, Level)"
+	                    + " values ('test','toto','test@test.com','test','2020-03-19','2020-04-19','0')";
 	 
-	            myStmt.executeUpdate(sql);
+	            myStmt.executeUpdate(insert);
 	            
 	            System.out.println("Insert complete.");
+	            
+	            //update
+	            String update = "update employe set Mail='demo@test.com' where nom='toto'";
+	            
+	            int rowsAffected = myStmt.executeUpdate(update);
+	 
+	            System.out.println("Rows affected: " + rowsAffected);
+	            System.out.println("Update complete.");
+	            
+	            //delete
+	            
+	            String delete = "delete from employe where nom='toto'";
+	            
+	            int rowsAffected1 = myStmt.executeUpdate(delete);
+	 
+	            System.out.println("Rows affected: " + rowsAffected1);
+	            System.out.println("Delete complete.");
 	 
 	      }
 	      catch (ClassNotFoundException e) {

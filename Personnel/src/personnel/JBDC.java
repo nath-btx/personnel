@@ -20,8 +20,9 @@ package personnel;
 	      
 	      Statement myStmt = null;
 	      try {
-	         System.out.println("Connecting to database..............."+JdbcURL);
-	         Class.forName("com.mysql.cj.jdbc.Driver");
+	         System.out.println("Connecting to database...............");
+	         System.out.println(JdbcURL);
+	         Class.forName("com.mysql.cj.jdbc.Driver"); 
 	         connection = DriverManager.getConnection(JdbcURL, Username, password);
 	         System.out.println("Connection is successful!!!!!!");
 	         
@@ -29,8 +30,8 @@ package personnel;
 	            myStmt = connection.createStatement();
 	 
 	            // 3. Execute SQL query
-	            String sql = "insert into employe " + " (IdEmploye, Nom, Prenom, Mail, Mdp, DateArrive, DateDepart, Level)"
-	                    + " values ('0', 'test','toto','test@test.com','test','2020-03-19','2020-04-19','0')";
+	            String sql = "insert into employe " + " (Nom, Prenom, Mail, Mdp, DateArrive, DateDepart, Level)"
+	                    + " values ('test','toto','test@test.com','test','2020-03-19','2020-04-19','0')";
 	 
 	            myStmt.executeUpdate(sql);
 	            

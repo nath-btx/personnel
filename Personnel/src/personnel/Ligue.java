@@ -170,11 +170,11 @@ public class Ligue implements Serializable, Comparable<Ligue>
 	            if(employe.estRoot()) {
 	            	level = 2;
 	            }
-	            /*
-	            if (employe.estAdmin(ligue)) {
+	            
+	            if (employe.estAdmin(employe.getLigue())) {
 	            	level = 1;
 	            }
-	            */
+	           
 	            
 	            
 	            String insert = "insert into employe " + " (Nom, Prenom, Mail, Mdp, DateArrive, Level)"

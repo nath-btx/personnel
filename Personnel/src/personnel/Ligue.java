@@ -141,8 +141,6 @@ public class Ligue implements Serializable, Comparable<Ligue>
 		return nom;
 	}
 	
-<<<<<<< HEAD
-=======
 	public void Enregistrer(Employe employe) throws SQLException
 	{
 		 String JdbcURL = "jdbc:mysql://localhost:3306/application_ppe?useUnicode=true & useJDBCCompliantTimezoneShift=true & useLegacyDatetimeCode = false & serverTimezone=UTC";
@@ -201,6 +199,7 @@ public class Ligue implements Serializable, Comparable<Ligue>
 	                connection.close();
 	            }
 	   }
->>>>>>> 5fa0560999f90cae170dc693ea8c8b3907eae5f9
-	
+	}
 }
+	
+

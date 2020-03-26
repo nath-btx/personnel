@@ -146,16 +146,17 @@ public class Employe implements Serializable, Comparable<Employe>
 		return password;
 	}
 	
-	public void setDateArrivee(LocalDate dateArrivee)
+	public void setDateArrivee(LocalDate dateArrivee) throws dateArriveException
 	{
 		if(dateArrivee.isAfter(this.dateDepart)) {
-            System.out.println("Date d'arrivée supérieur à la date de fin.");
-            int day = getInt("Jour : ");
-    		int month = getInt("Mois : ");
-    		int year = getInt("Année : ");
+			throw new dateArriveException();
+//            System.out.println("Date d'arrivée supérieur à la date de fin.");
+//            int day = getInt("Jour : ");
+//    		int month = getInt("Mois : ");
+//    		int year = getInt("Année : ");
     		
-    		LocalDate inputDate = LocalDate.of(year,month,day);
-    		setDateArrivee(inputDate);
+//    		LocalDate inputDate = LocalDate.of(year,month,day);
+//    		setDateArrivee(inputDate);
 		}
 		 else {
 	            this.dateArrivee = dateArrivee;
@@ -169,17 +170,18 @@ public class Employe implements Serializable, Comparable<Employe>
 		return dateArrivee;
 	}
 	
-	public void setDateDepart(LocalDate dateDepart)
+	public void setDateDepart(LocalDate dateDepart) throws dateDepartException
     {
 		
         if(dateDepart.isBefore(this.dateArrivee)) {
-            System.out.println("Date de fin inférieur à la date d'arrivée.");
-            int day = getInt("Jour : ");
-    		int month = getInt("Mois : ");
-    		int year = getInt("Année : ");
-    		
-    		LocalDate inputDate = LocalDate.of(year,month,day);
-    		setDateDepart(inputDate);
+        	throw new dateDepartException();
+//            System.out.println("Date de fin inférieur à la date d'arrivée.");
+//            int day = getInt("Jour : ");
+//    		int month = getInt("Mois : ");
+//    		int year = getInt("Année : ");
+//    		
+//    		LocalDate inputDate = LocalDate.of(year,month,day);
+//    		setDateDepart(inputDate);
         }
         else {
             this.dateDepart = dateDepart;

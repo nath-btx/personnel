@@ -3,7 +3,7 @@ package commandLine;
 import static commandLineMenus.rendering.examples.util.InOut.getString;
 import static commandLineMenus.rendering.examples.util.InOut.getInt;
 
-
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -92,9 +92,13 @@ public class LigueConsole
 		return new Option("Ajouter un employé", "a",
 				() -> 
 				{
-					ligue.addEmploye(getString("nom : "), 
-						getString("prenom : "), getString("mail : "), 
-						getString("password : "), getDate());
+					try {
+						ligue.addEmploye(getString("nom : "), 
+							getString("prenom : "), getString("mail : "), 
+							getString("password : "), getDate());
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
 				}
 		);
 	}

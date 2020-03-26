@@ -5,6 +5,10 @@ import java.time.LocalDate;
 import static commandLineMenus.rendering.examples.util.InOut.getInt;
 
 import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**t
  * EmployÃ© d'une ligue hÃ©bergÃ©e par la M2L. Certains peuvent 
@@ -138,10 +142,23 @@ public class Employe implements Serializable, Comparable<Employe>
 		this.password= password;
 	}
 	
-	public void setDateArrivee(LocalDate datearrivee)
+	public void setDateArrivee(LocalDate dateArrivee)
 	{
-		this.dateArrivee= datearrivee;
-	}
+		if(dateArrivee.isAfter(this.dateDepart)) {
+            System.out.println("Date d'arrivée supérieur à la date de fin.");
+            int day = getInt("Jour : ");
+    		int month = getInt("Mois : ");
+    		int year = getInt("Année : ");
+    		
+    		LocalDate inputDate = LocalDate.of(year,month,day);
+    		setDateArrivee(inputDate);
+		}
+		 else {
+	            this.dateArrivee = dateArrivee;
+	        }
+
+
+	    }
 	
 	public LocalDate getDateArrivee()
 	{
@@ -222,4 +239,5 @@ public class Employe implements Serializable, Comparable<Employe>
 			res += ligue.toString();
 		return res + ")";
 	}
+	
 }

@@ -108,7 +108,7 @@ public class Ligue implements Serializable, Comparable<Ligue>
 	public Employe addEmploye(String nom, String prenom, String mail, String password, LocalDate datearrivee) throws SQLException
 	{
 		Employe employe = new Employe(this, nom, prenom, mail, password, datearrivee);
-		Enregistrer(employe);
+		JBDC.enregistrerEmploye(employe);
 		employes.add(employe);
 		return employe;
 	}
@@ -119,7 +119,7 @@ public class Ligue implements Serializable, Comparable<Ligue>
 	}
 	
 	/**
-	 * Supprime la ligue, entraÃ®ne la suppression de tous les employés
+	 * Supprime la ligue, entraîne la suppression de tous les employés
 	 * de la ligue.
 	 */
 	
@@ -141,65 +141,5 @@ public class Ligue implements Serializable, Comparable<Ligue>
 		return nom;
 	}
 	
-	public void Enregistrer(Employe employe) throws SQLException
-	{
-		 String JdbcURL = "jdbc:mysql://localhost:3306/application_ppe?useUnicode=true & useJDBCCompliantTimezoneShift=true & useLegacyDatetimeCode = false & serverTimezone=UTC";
-	      String Username = "root";
-	      String password = "";
-	      Connection connection = null;
-	      
-	      Statement myStmt = null;
-	      try {
-	         System.out.println("Connecting to database...............");
-	         System.out.println(JdbcURL);
-	         Class.forName("com.mysql.cj.jdbc.Driver"); 
-	         connection = DriverManager.getConnection(JdbcURL, Username, password);
-	         System.out.println("Connection is successful!");
-	         
-	         // 2. Create a statement
-	            myStmt = connection.createStatement();
-	 
-	            // 3. Execute SQL query
-	            //insert
-	            String nom = employe.getNom();
-	            String prenom = employe.getPrenom();
-	            String mail = employe.getMail();
-	            LocalDate dateArrivee = employe.getDateArrivee();
-	            LocalDate dateDepart = employe.getDateDepart();
-	            int level = 0;
-	            if(employe.estRoot()) {
-	            	level = 2;
-	            }
-	            /*
-	            if (employe.estAdmin(ligue)) {
-	            	level = 1;
-	            }
-	            */
-	            
-	            
-	            String insert = "insert into employe " + " (Nom, Prenom, Mail, Mdp, DateArrive, Level)"
-	                    + " values ('"+ nom + "','"+prenom+"','"+ mail +"','mettre le mot de passe ici',"
-	                    		+ "'"+ dateArrivee +"','"+ level +"')";
-	 
-	            myStmt.executeUpdate(insert);
-	            
-	            System.out.println("Insert complete."); 
-	      }
-	      catch (ClassNotFoundException e) {
-	            e.printStackTrace();
-	      }
-	      catch(SQLException e) {
-	         e.printStackTrace();
-	      }finally {
-	            if (myStmt != null) {
-	                myStmt.close();
-	            }
-	 
-	            if (connection != null) {
-	                connection.close();
-	            }
-	   }
 	
-
-	}
 }

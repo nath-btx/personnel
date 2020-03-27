@@ -2,12 +2,15 @@ package commandLine;
 
 import static commandLineMenus.rendering.examples.util.InOut.*;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 import commandLineMenus.Menu;
 import commandLineMenus.Option;
 import personnel.Employe;
 import personnel.GestionPersonnel;
+import personnel.dateArriveException;
+import personnel.dateDepartException;
 import commandLine.LigueConsole;
 
 
@@ -64,12 +67,30 @@ public class EmployeConsole
 	
 	private Option changerDateArrivee(final Employe employe)
 	{
-		return new Option("Changer la date d'arrivée", "a", () -> {employe.setDateArrivee(getDate());});
+		return new Option("Changer la date d'arrivée", "a", () -> {
+			try {
+				employe.setDateArrivee(getDate());
+			} 
+			catch (dateArriveException e) {
+				System.out.println("La date de départ ne peut pas être avant la date d'arrivée");
+			} 
+			catch (SQLException e) {
+				System.out.println("Invalid Values");
+			}
+			});
 	}
 	
 	private Option changerDateDepart(final Employe employe)
 	{
-		return new Option("Changer la date de départ", "d", () -> {employe.setDateDepart(getDate());});
+		return new Option("Changer la date de départ", "d", () -> {
+			try {
+				employe.setDateDepart(getDate());
+			} 
+			catch (dateDepartException e) {
+				System.out.println("La date d'arrivée ne peut pas être après la date de depart");
+			} catch (SQLException e) {
+				System.out.println("Invalid Values");			}
+			});
 	}
 	
 	

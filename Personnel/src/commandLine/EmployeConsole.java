@@ -9,7 +9,7 @@ import commandLineMenus.Menu;
 import commandLineMenus.Option;
 import personnel.Employe;
 import personnel.GestionPersonnel;
-import personnel.dateArriveException;
+import personnel.dateArriveeException;
 import personnel.dateDepartException;
 import commandLine.LigueConsole;
 
@@ -71,14 +71,14 @@ public class EmployeConsole
 			try {
 				employe.setDateArrivee(getDate());
 			} 
-			catch (dateArriveException e) {
+			catch (dateArriveeException e) {
 				System.out.println("La date de départ ne peut pas être avant la date d'arrivée");
 			} 
 			catch (SQLException e) {
 				System.out.println("Invalid Values");
 			}
 			catch (java.time.DateTimeException e) {
-				System.out.println("Ta pas mis la bonne valeurs");
+				System.out.println("Tu n'as pas mis la bonne valeur");
 			}
 			});
 	}
@@ -92,7 +92,11 @@ public class EmployeConsole
 			catch (dateDepartException e) {
 				System.out.println("La date d'arrivée ne peut pas être après la date de depart");
 			} catch (SQLException e) {
-				System.out.println("Invalid Values");			}
+				System.out.println("Invalid Values");			
+			}
+			catch (java.time.DateTimeException e) {
+				System.out.println("Tu n'as pas mis la bonne valeur");
+			}
 			});
 	}
 	

@@ -146,10 +146,10 @@ public class Employe implements Serializable, Comparable<Employe>
 		return password;
 	}
 	
-	public void setDateArrivee(LocalDate dateArrivee) throws dateArriveException, SQLException
+	public void setDateArrivee(LocalDate dateArrivee) throws dateArriveeException, SQLException
 	{
 		if(dateArrivee.isAfter(this.dateDepart)) {
-			throw new dateArriveException();
+			throw new dateArriveeException();
 //            System.out.println("Date d'arrivée supérieur à la date de fin.");
 //            int day = getInt("Jour : ");
 //    		int month = getInt("Mois : ");

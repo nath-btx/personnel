@@ -77,6 +77,9 @@ public class EmployeConsole
 			catch (SQLException e) {
 				System.out.println("Invalid Values");
 			}
+			catch (java.time.DateTimeException e) {
+				System.out.println("Ta pas mis la bonne valeurs");
+			}
 			});
 	}
 	

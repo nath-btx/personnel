@@ -2,6 +2,7 @@ package testsUnitaires;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +12,7 @@ class testLigue
 {
 	//createLigue getNom OK
 	@Test
-	void createLigue() 
+	void createLigue() throws SQLException 
 	{
 		Ligue ligue = new Ligue("Fléchettes");
 		assertEquals("Fléchettes", ligue.getNom());
@@ -19,7 +20,7 @@ class testLigue
 
 	//addEmploye getEmployes OK
 	@Test
-	void addEmploye() 
+	void addEmploye() throws SQLException 
 	{
 		Ligue ligue = new Ligue("Fléchettes");
 		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty", LocalDate.now()); 
@@ -30,7 +31,7 @@ class testLigue
 	
 	// setAdministrateur getAdministrateur OK
 	@Test
-	void testSetAdministrateur() {
+	void testSetAdministrateur() throws SQLException {
 		Ligue ligue = new Ligue("Fléchettes");
 		Employe administrateur= ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty", LocalDate.now()); 
 		ligue.setAdministrateur(administrateur);
@@ -39,7 +40,7 @@ class testLigue
 	
 	// getEmployes et addEmploye OK
 	@Test
-	void getEmployes() {
+	void getEmployes() throws SQLException {
 		Ligue ligue = new Ligue("Fléchettes");
 		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty", LocalDate.now()); 
 		assertEquals(employe, ligue.getEmployes().first());
@@ -49,7 +50,7 @@ class testLigue
 	
 	// compareTo OK
 	@Test
-	void compareTo() {
+	void compareTo() throws SQLException {
 		Ligue ligue = new Ligue("Pétanque");
 		Ligue autre = new Ligue("Fléchettes");
 		assertEquals(ligue.compareTo(autre), ligue.getNom().compareTo(autre.getNom()));
@@ -62,7 +63,7 @@ class testLigue
 	
 	// setNom OK
 	@Test
-	void testSetNom() {
+	void testSetNom() throws SQLException {
 		String ligue = "Pétanque";
 		String ligue2 = "Fléchettes";
 		Ligue laligue = new Ligue(ligue);
@@ -72,7 +73,7 @@ class testLigue
 	}
 	
 	@Test
-	void remove() {
+	void remove() throws SQLException {
 		Ligue ligue = new Ligue("Fléchettes");
 		Employe employe = ligue.addEmploye("Bouchard", "Gérard", "g.bouchard@gmail.com", "azerty", LocalDate.now()); 
 		ligue.remove();

@@ -18,7 +18,7 @@ class TestEmploye {
 	
 //testEmploye = OK
 	@Test
-	void testEmploye() {
+	void testEmploye() throws SQLException {
 		Ligue ligue = new Ligue("Fléchettes");
 		Employe employe = null;
 		try {
@@ -32,7 +32,7 @@ class TestEmploye {
 	}
 	//estAdmin = OK
 	@Test
-	void testEstAdmin() {
+	void testEstAdmin() throws SQLException {
 		Ligue ligue = new Ligue("Pétanque");
 		Employe employe = null;
 		try {
@@ -46,7 +46,7 @@ class TestEmploye {
 	}
 	//estRoot = Ok
 	@Test
-	void testEstRoot() {
+	void testEstRoot() throws SQLException {
 		Ligue ligue = new Ligue("bilboquet");
 		Employe root = GestionPersonnel.getGestionPersonnel().getRoot();
 		Employe employer = null;
@@ -61,7 +61,7 @@ class TestEmploye {
 	}
 	//textSetNom & GetNom = ok 
 	@Test
-	void testSetNom() {
+	void testSetNom() throws SQLException {
 		Ligue ligue = new Ligue("Pétanque");
 		Employe employe = null;
 		try {
@@ -77,7 +77,7 @@ class TestEmploye {
 
 	//SetPrenom & GetPrenom = ok
 	@Test
-	void testSetPrenom() {
+	void testSetPrenom() throws SQLException {
 		Ligue ligue = new Ligue("Pétanque");
 		Employe employe = null;
 		try {
@@ -93,7 +93,7 @@ class TestEmploye {
 
 	//SetMail & GetMail = ok
 	@Test
-	void testSetMail() {
+	void testSetMail() throws SQLException {
 		Ligue ligue = new Ligue("Pétanque");
 		Employe employe = null;
 		try {
@@ -108,7 +108,7 @@ class TestEmploye {
 	}
 //CheckPassword & SetPassword = ok
 	@Test
-	void testCheckPassword() {
+	void testCheckPassword() throws SQLException {
 		Ligue ligue = new Ligue("Pétanque");
 		Employe employe = null;
 		try {
@@ -124,7 +124,7 @@ class TestEmploye {
 	}
 // GetLigue = ok
 	@Test
-	void testGetLigue() {
+	void testGetLigue() throws SQLException {
 		Ligue ligue = new Ligue("Pétanque");
 		Employe employe = null;
 		try {
@@ -137,7 +137,7 @@ class TestEmploye {
 	}
 	// Remove = ok
 	@Test
-	void testRemove() {
+	void testRemove() throws SQLException {
 		Ligue ligue = new Ligue("Pétanque");
 		Employe employe1 = null;
 		try {
@@ -155,7 +155,7 @@ class TestEmploye {
 	}
 	// CompareTo = ok
 	@Test
-	void testCompareTo() {
+	void testCompareTo() throws SQLException {
 		Ligue ligue = new Ligue("Pétanque");
 		Employe employe1 = null;
 		try {
@@ -175,7 +175,7 @@ class TestEmploye {
 	}
 	// ToString = OK
 	@Test
-	void testToString() {
+	void testToString() throws SQLException {
 		Ligue ligue = new Ligue("Pétanque");
 		Employe employe = null;
 		try {
@@ -188,7 +188,7 @@ class TestEmploye {
 	}
 	// SetDateArriver & GetDateArriver = Ok
 	@Test
-	void testSetDateArriver() {
+	void testSetDateArriver() throws SQLException {
 		Ligue ligue = new Ligue("Pétanque");
 		Employe employe = null;
 		try {
@@ -208,7 +208,7 @@ class TestEmploye {
 	}
 	// SetDateDepart & GetDateDepart = Ok
 	@Test
-	void testSetDateDepart() {
+	void testSetDateDepart() throws SQLException {
 		Ligue ligue = new Ligue("Pétanque");
 		Employe employe = null;
 		try {

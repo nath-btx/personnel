@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 import personnel.Employe;
 import personnel.Ligue;
-import personnel.dateArriveException;
+import personnel.dateArriveeException;
 import personnel.dateDepartException;
 import personnel.GestionPersonnel;
 
@@ -200,7 +200,7 @@ class TestEmploye {
 		LocalDate date = LocalDate.of(2000, 12, 12);
 		try {
 			employe.setDateArrivee(date);
-		} catch (dateArriveException | SQLException e) {
+		} catch (dateArriveeException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

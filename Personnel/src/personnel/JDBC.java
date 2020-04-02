@@ -9,7 +9,7 @@ import java.time.LocalDate;
 	import java.sql.ResultSet;
 	
 	
-	 public class JBDC implements Passerelle  {
+	 public class JDBC implements Passerelle  {
 	   public static void main(String[] args) throws SQLException {
 
 //		  String JdbcURL = "jdbc:mysql://localhost:3306/application_ppe?useUnicode=true & useJDBCCompliantTimezoneShift=true & useLegacyDatetimeCode = false & serverTimezone=UTC";
@@ -150,7 +150,7 @@ import java.time.LocalDate;
 
 	}
 	
-	public void enregistrerLigue(Ligue ligue) throws SQLException
+	public static void enregistrerLigue(String ligue) throws SQLException
 	{
 		  String JdbcURL = "jdbc:mysql://localhost:3306/application_ppe?useUnicode=true & useJDBCCompliantTimezoneShift=true & useLegacyDatetimeCode = false & serverTimezone=UTC";
 	      String Username = "root";

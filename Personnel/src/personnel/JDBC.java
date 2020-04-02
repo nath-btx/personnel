@@ -192,6 +192,88 @@ import java.time.LocalDate;
 
 	}
 	
+	public static void modifierLigue(Ligue ligue) throws SQLException
+	{
+		  String JdbcURL = "jdbc:mysql://localhost:3306/application_ppe?useUnicode=true & useJDBCCompliantTimezoneShift=true & useLegacyDatetimeCode = false & serverTimezone=UTC";
+	      String Username = "root";
+	      String password = "";
+	      Connection connection = null;
+	      
+	      Statement myStmt = null;
+	      try {
+	         Class.forName("com.mysql.cj.jdbc.Driver"); 
+	         connection = DriverManager.getConnection(JdbcURL, Username, password);
+	         
+	            myStmt = connection.createStatement();
+	            
+	            
+	            String update = "update ligue " + "(NomLigue)" + "set nomLigue="+ligue+"= "+"where"+"(NomLigue)"+" ";
+	 
+	            myStmt.executeUpdate(update);
+	            
+	      }
+	      catch (ClassNotFoundException e) {
+	            e.printStackTrace();
+	      }
+	      catch(DateTimeException e) {
+	    	  System.out.println("Invalide values");
+	      }
+	      catch(SQLException e) {
+	         e.printStackTrace();
+	      }finally {
+	            if (myStmt != null) {
+	                myStmt.close();
+	            }
+	 
+	            if (connection != null) {
+	                connection.close();
+	            }
+	   }
+	
+
+	}
+	
+	public static void supprimerLigue(Ligue ligue) throws SQLException
+	{
+		  String JdbcURL = "jdbc:mysql://localhost:3306/application_ppe?useUnicode=true & useJDBCCompliantTimezoneShift=true & useLegacyDatetimeCode = false & serverTimezone=UTC";
+	      String Username = "root";
+	      String password = "";
+	      Connection connection = null;
+	      
+	      Statement myStmt = null;
+	      try {
+	         Class.forName("com.mysql.cj.jdbc.Driver"); 
+	         connection = DriverManager.getConnection(JdbcURL, Username, password);
+	         
+	            myStmt = connection.createStatement();
+	            
+	            
+	            String drop = "drop table "+ligue+"";
+	 
+	            myStmt.executeUpdate(drop);
+	            
+	      }
+	      catch (ClassNotFoundException e) {
+	            e.printStackTrace();
+	      }
+	      catch(DateTimeException e) {
+	    	  System.out.println("Invalide values");
+	      }
+	      catch(SQLException e) {
+	         e.printStackTrace();
+	      }finally {
+	            if (myStmt != null) {
+	                myStmt.close();
+	            }
+	 
+	            if (connection != null) {
+	                connection.close();
+	            }
+	   }
+	
+
+	}
+	
 	
 
 }

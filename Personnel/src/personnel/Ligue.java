@@ -128,6 +128,11 @@ public class Ligue implements Serializable, Comparable<Ligue>
 	public void remove()
 	{
 		GestionPersonnel.getGestionPersonnel().remove(this);
+		try {
+			JDBC.supprimerLigue(this);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 

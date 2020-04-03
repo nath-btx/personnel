@@ -10,7 +10,8 @@ import java.time.LocalDate;
 	
 	
 	 public class JDBC implements Passerelle  {
-	   public static void main(String[] args) throws SQLException {
+
+	public static void main(String[] args) throws SQLException {
 
 //		  String JdbcURL = "jdbc:mysql://localhost:3306/application_ppe?useUnicode=true & useJDBCCompliantTimezoneShift=true & useLegacyDatetimeCode = false & serverTimezone=UTC";
 //		  String Username = "root";
@@ -129,6 +130,71 @@ import java.time.LocalDate;
 	                    		+ "'"+ dateArrivee +"', '"+dateDepart+"','"+ level +"')";
 	            }
 	            myStmt.executeUpdate(insert);
+	      
+	            
+	      }
+	      catch (ClassNotFoundException e) {
+	            e.printStackTrace();
+	      }
+	      catch(SQLException e) {
+	         e.printStackTrace();
+	      }finally {
+	            if (myStmt != null) {
+	                myStmt.close();
+	            }
+	 
+	            if (connection != null) {
+	                connection.close();
+	            }
+	   }
+	
+
+	}
+	
+	public static void supprimerEmploye(Employe employe) throws SQLException
+	{
+		  String JdbcURL = "jdbc:mysql://localhost:3306/application_ppe?useUnicode=true & useJDBCCompliantTimezoneShift=true & useLegacyDatetimeCode = false & serverTimezone=UTC";
+	      String Username = "root";
+	      String password = "";
+	      Connection connection = null;
+	      
+	      Statement myStmt = null;
+	      try {
+	         Class.forName("com.mysql.cj.jdbc.Driver"); 
+	         connection = DriverManager.getConnection(JdbcURL, Username, password);
+	         
+	            myStmt = connection.createStatement();
+	 
+	            String nom = employe.getNom();
+	            String prenom = employe.getPrenom();
+	            String mail = employe.getMail();
+	        	// Comment récupérer le mot de passe sans getPassword?
+	            String motdepasse = employe.getPassword();
+	            LocalDate dateArrivee = employe.getDateArrivee();
+	            LocalDate dateDepart = employe.getDateDepart();
+	            int level = 0;
+	            boolean Root = employe.estRoot();
+	            
+	            
+	            /*
+	            if (employe.estAdmin(employe.getLigue())) {
+	            	level = 1;
+	            }
+	            if (employe.estRoot()) {
+	            	level = 2;
+	            }
+	            */
+	            String delete;
+	            if (level == 1) {
+	 	            delete = "delete from employe where"+(""+ nom + ""+prenom  + ""+ mail +""+ dateArrivee +""+ level+"")+""; 
+	 	            myStmt.executeUpdate(delete);
+	 	            //Faut que le root soit admin à la place de l'admin mais j'ai pas trouver comment fauire
+	            }
+	            else {
+		 	            delete = "delete from employe where"+(""+ nom + ""+prenom  + ""+ mail +""+ dateArrivee +""+ level+"")+""; 
+		 	            myStmt.executeUpdate(delete);
+	            }
+	            myStmt.executeUpdate(delete);
 	      
 	            
 	      }

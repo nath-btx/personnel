@@ -2,14 +2,17 @@ package personnel;
 
 	import java.sql.Connection;
 	import java.sql.DriverManager;
+	import java.sql.PreparedStatement;
 	import java.sql.Statement;
-import java.time.DateTimeException;
-import java.time.LocalDate;
+	import java.time.DateTimeException;
+	import java.time.LocalDate;
 	import java.sql.SQLException;
 	import java.sql.ResultSet;
+	import personnel.*;
 	
 	
 	 public class JDBC implements Passerelle  {
+		 Connection connection;
 
 	public static void main(String[] args) throws SQLException {
 
@@ -75,8 +78,23 @@ import java.time.LocalDate;
 
 	@Override
 	public GestionPersonnel getGestionPersonnel() {
-		// TODO Auto-generated method stub
-		return null;
+		Statement instruction = connection.createStatement();
+		Object gestionPersonnel;
+		try 
+		{
+			ResultSet ligues;
+			String select = "Select * from employe where employe.IdLig ="+ligues.getInt(1); 
+			Statement connect = connection.createStatement();
+			while (ligues.next()) {
+				gestionPersonnel.addLigue(ligues.getInt(1), ligues.getString(2));
+			}
+	
+		}
+		catch (SQLException e)
+		{
+			System.out.println(e);
+		}
+		return gestionPersonnel;
 	}
 
 	@Override

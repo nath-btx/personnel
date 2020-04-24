@@ -31,7 +31,7 @@ public class GestionPersonnel implements Serializable
 	 * @return l'unique objet de type {@link GestionPersonnel}.
 	 */
 	
-	public static GestionPersonnel getGestionPersonnel()
+	public  GestionPersonnel getGestionPersonnel()
 	{
 		if (gestionPersonnel == null)
 		{
